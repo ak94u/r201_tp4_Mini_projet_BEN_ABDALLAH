@@ -4,6 +4,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
+
+import java.util.Objects;
+
 /**
  *
  * @author but-info
@@ -52,6 +55,24 @@ public class Personne implements Comparable<Personne> {
         this.civilite = civilite;
     }
     
+    @Override
+    public boolean equals(Object o){
+        if(this == o)return true;
+        if(!(o instanceof Personne))return false;
+        
+        Personne p = (Personne) o;
+        
+        return this.nom.equals(p.nom) && this.prenom.equals(p.prenom) && this.civilite.equals(p.civilite);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.nom);
+        hash = 59 * hash + Objects.hashCode(this.prenom);
+        hash = 59 * hash + Objects.hashCode(this.civilite);
+        return hash;
+    }
     @Override
     public String toString(){
         nom = getNom();
