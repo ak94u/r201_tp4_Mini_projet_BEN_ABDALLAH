@@ -4,8 +4,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
-
-import java.util.HashSet;
 /**
  *
  * @author but-info
@@ -38,7 +36,7 @@ public class Personne {
         return prenom;
     }
 
-    public HashSet<String> getCivilite() {
+    public String getCivilite() {
         return civilite;
     }
 
@@ -50,10 +48,15 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    public void setCivilite(HashSet<String> civilite) {
+    public void setCivilite(String civilite) {
         this.civilite = civilite;
     }
     
+    @Override
+    public String toString(String nom, String prenom, String civilite){
+        getNom() = nom;
+        return
+    }
     
     
 }
