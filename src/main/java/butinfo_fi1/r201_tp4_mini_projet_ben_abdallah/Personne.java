@@ -53,9 +53,11 @@ public class Personne {
     }
     
     @Override
-    public String toString(String nom, String prenom, String civilite){
-        getNom() = nom;
-        return
+    public String toString(){
+        nom = getNom();
+        prenom = getPrenom();
+        civilite = getCivilite();
+        return "[Prenom = " + prenom + "," + "Nom = " + nom + "," + "Civilité = " + civilite + " ]"; 
     }
     
     
