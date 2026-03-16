@@ -8,7 +8,7 @@ package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
  *
  * @author but-info
  */
-public class Personne {
+public class Personne implements Comparable<Personne> {
     private String nom;
     private String prenom;
     private String civilite;
@@ -58,6 +58,17 @@ public class Personne {
         prenom = getPrenom();
         civilite = getCivilite();
         return "[Prenom = " + prenom + "," + "Nom = " + nom + "," + "Civilité = " + civilite + " ]"; 
+    }
+
+    @Override
+    public int compareTo(Personne p2) {
+        int cmpNom = this.nom.compareTo(p2.nom);
+        if (cmpNom != 0) return cmpNom;
+        
+        int cmpPrenom = this.prenom.compareTo(p2.prenom);
+        if (cmpPrenom != 0) return cmpPrenom;
+        
+        return this.civilite.compareTo(p2.civilite);
     }
     
     
