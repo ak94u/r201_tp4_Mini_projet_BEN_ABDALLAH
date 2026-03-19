@@ -67,11 +67,7 @@ public class Personne implements Comparable<Personne> {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.nom);
-        hash = 59 * hash + Objects.hashCode(this.prenom);
-        hash = 59 * hash + Objects.hashCode(this.civilite);
-        return hash;
+       return Objects.hash(this.nom, this.prenom, this.civilite);
     }
     @Override
     public String toString(){
