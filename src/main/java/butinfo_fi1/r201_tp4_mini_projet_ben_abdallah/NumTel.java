@@ -10,10 +10,10 @@ import java.util.Objects;
  * @author but-info
  */
 public class NumTel {
-    private int num;
+    private String num;
     private String type;
     
-    public NumTel(int numero, String typeNum){
+    public NumTel(String numero, String typeNum){
         this.num = numero;
         if(type == null){
             this.type = "?";
@@ -22,7 +22,7 @@ public class NumTel {
         }
     }
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
@@ -30,7 +30,7 @@ public class NumTel {
         this.type = type;
     }
 
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
@@ -38,16 +38,10 @@ public class NumTel {
         return type;
     }
     
-    public int HashCode(){
-        return Objects.hash(this.num, this.type);
-    }
-    
-    
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.num;
+        hash = 97 * hash + Objects.hashCode(this.num);
         hash = 97 * hash + Objects.hashCode(this.type);
         return hash;
     }
@@ -64,7 +58,7 @@ public class NumTel {
             return false;
         }
         final NumTel other = (NumTel) obj;
-        if (this.num != other.num) {
+        if (this.num == null ? other.num != null : !this.num.equals(other.num)) {
             return false;
         }
         return Objects.equals(this.type, other.type);
@@ -74,7 +68,7 @@ public class NumTel {
     
     @Override
     public String toString(){
-        int n = getNum();
+        String n = getNum();
         String t = getType();
         return "numeros : " + n + " type: " + t;
     }

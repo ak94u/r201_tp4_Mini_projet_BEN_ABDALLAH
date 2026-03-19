@@ -8,6 +8,7 @@ package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
  *
  * @author but-info
  */
-public class ListeNumTel_BEN_ABADLLAH {
+public class ListeNumTel_BEN_ABADLLAH implements ListeNumTel{
+    
     
 }
