@@ -77,7 +77,8 @@ public interface ListeNumTel {
    * 
    * @return la chaine contenant la séquence des numéros.
    */ 
-  public String toString() ;
+  @Override
+  public String toString();
 
   /**
    * Renvoie un itérateur sur les numéros de téléphone contenus dans la liste.
