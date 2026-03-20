@@ -11,59 +11,83 @@ import java.util.Iterator;
  * @author but-info
  */
 public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
-    private ArrayList<NumTel> num;
+    private ArrayList<NumTel> Listenum;
     
-    public ListeNumTel_BEN_ABDALLAH(ArrayList<NumTel> num){
-        num = new ArrayList<>();  
+    public ListeNumTel_BEN_ABDALLAH(ArrayList<NumTel> Listenum){
+        this.Listenum = new ArrayList<>(Listenum);
+        }
+
+        @Override
+        public boolean ajouterFin(NumTel num) {
+            for(NumTel n : Listenum){
+                if(num.equals(n)){
+                    return false;
+                }       
+            } 
+        Listenum.add(num);
+        return true;
+        }
+        
+        
+        @Override
+        public boolean ajouterDebut(NumTel num) {
+            for(NumTel n : Listenum){
+                if(num.equals(n)){
+                    return false;
+                }       
+            } 
+        Listenum.addFirst(num);
+        return true;
+        }
+
+        @Override
+        public boolean ajouter(int index, NumTel num) {
+            for(NumTel n: Listenum){
+                if(n.equals(num)){
+                    return false;
+                }
+            }
+            if(index < 0 || index > Listenum.size()){
+                throw new IndexOutOfBoundsException("Index invalide : " + index);
+            }
+            Listenum.add(index, num);
+            return true;
+        }
+
+        @Override
+        public NumTel premierNumero() {
+            if(Listenum.isEmpty()){
+                return null;
+            }
+            return this.Listenum.get(0);
+        }
+
+        @Override
+        public NumTel numero(int index) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public boolean contientNumero(int num) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public int nbNumeros() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public Iterator iterator() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public boolean retirer(int num) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+        
+        
     }   
     
-    @Override
-    public boolean ajouterFin(NumTel num){
-         
-    }
     
-    @Override
-    public boolean ajouterDebut(NumTel num){
-         
-    }
-    
-    @Override
-    public boolean ajouter(int index, NumTel num){
-        
-    }
-    
-    @Override
-    public NumTel premierNumero(){
-        
-    }
-    
-    @Override
-    public NumTel numero(int index ){
-        
-    }
-    
-    @Override
-    public boolean contientNumero(int num){
-        
-    }
-    
-    @Override
-    public int nbNumeros(){
-        
-    }
-    
-    @Override
-    public String toString(){
-        
-    }
-    
-    @Override
-    public Iterator iterator(){
-        
-    }
-    
-    @Override
-    public boolean retirer(int num){
-        
-    }
-}
