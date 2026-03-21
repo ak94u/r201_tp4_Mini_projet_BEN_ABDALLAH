@@ -15,7 +15,7 @@ public class NumTel {
     
     public NumTel(String numero, String typeNum){
         this.num = numero;
-        if(type == null){
+        if(typeNum == null){
             this.type = "?";
         }else{
             this.type = typeNum;
@@ -72,4 +72,5 @@ public class NumTel {
         String t = getType();
         return "numeros : " + n + " type: " + t;
     }
+
 }

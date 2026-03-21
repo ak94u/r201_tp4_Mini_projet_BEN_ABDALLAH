@@ -61,7 +61,7 @@ public interface ListeNumTel {
   * @return true si la liste contient le objet Numtel dont le numéro est
   *         identique à num, false sinon
   */
-  public boolean contientNumero(int num) ;
+  public boolean contientNumero(NumTel num) ;
 
  /**
   * retourne le nombre de numéros de la liste (>=1).

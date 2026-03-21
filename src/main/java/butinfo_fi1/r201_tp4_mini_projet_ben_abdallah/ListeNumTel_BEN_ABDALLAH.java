@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @author but-info
  */
 public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
-    private ArrayList<NumTel> Listenum;
+    private final ArrayList<NumTel> Listenum;
     
     public ListeNumTel_BEN_ABDALLAH(ArrayList<NumTel> Listenum){
         this.Listenum = new ArrayList<>(Listenum);
@@ -64,17 +64,34 @@ public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
 
         @Override
         public NumTel numero(int index) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            int i = 0;
+            for(NumTel x : Listenum){
+                i++;
+                if(i == index){
+                    return x;
+                 }
+                 i++;
+            }
+          return null; 
         }
 
         @Override
-        public boolean contientNumero(int num) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public boolean contientNumero(NumTel num) {
+            for(NumTel x : Listenum){
+                if(x.equals(num)){
+                    return true;
+                }
+            }
+            return false;
         }
 
         @Override
         public int nbNumeros() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            int count = 0; 
+            for(NumTel x : Listenum){
+                count++;               
+            }
+           return count;
         }
 
         @Override
@@ -87,7 +104,9 @@ public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
         
-        
+        public void add(NumTel n) {
+            Listenum.add(n);
+        }
     }   
     
     
