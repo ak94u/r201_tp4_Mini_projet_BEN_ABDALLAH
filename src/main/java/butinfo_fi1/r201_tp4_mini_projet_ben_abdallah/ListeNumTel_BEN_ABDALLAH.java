@@ -64,15 +64,10 @@ public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
 
         @Override
         public NumTel numero(int index) {
-            int i = 0;
-            for(NumTel x : Listenum){
-                i++;
-                if(i == index){
-                    return x;
-                 }
-                 i++;
+            if(index < 0 || index >= Listenum.size()){
+                 return null; 
             }
-          return null; 
+            return Listenum.get(index); 
         }
 
         @Override
@@ -93,15 +88,41 @@ public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
             }
            return count;
         }
+        
+        
+        @Override
+        public String toString(){
+            StringBuilder sb = new StringBuilder();
+            
+            for(int i = 0; i < Listenum.size(); i++){
+                sb.append(Listenum.get(i));
+                if(i < Listenum.size() - 1){
+                    sb.append(", ");
+                }
+            }
+            return sb.toString();
+        }
 
         @Override
         public Iterator iterator() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            return Listenum.iterator();
         }
 
         @Override
         public boolean retirer(int num) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            if(Listenum.size() <= 1){
+                return false;
+            }
+            
+            String numStr = String.valueOf(num);
+            
+            for(int i = 0; i < Listenum.size(); i++){
+                if(Listenum.get(i).getNum().equals(numStr)){
+                    Listenum.remove(i);
+                    return true;
+                }
+            }
+            return false;
         }
         
         public void add(NumTel n) {

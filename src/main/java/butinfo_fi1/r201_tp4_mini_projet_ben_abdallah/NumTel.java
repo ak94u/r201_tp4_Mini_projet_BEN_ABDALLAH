@@ -68,9 +68,7 @@ public class NumTel {
     
     @Override
     public String toString(){
-        String n = getNum();
-        String t = getType();
-        return "numeros : " + n + " type: " + t;
+        return num + "( "+ type + ")";
     }
 
 }
