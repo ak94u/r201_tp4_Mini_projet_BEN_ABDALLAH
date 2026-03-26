@@ -68,7 +68,7 @@ public class NumTel {
     
     @Override
     public String toString(){
-        return num + "( "+ type + ")";
+        return num + "("+ type + ")";
     }
 
 }
