@@ -22,7 +22,7 @@ public interface Annuaire {
      * @return truesi l'entrée a été ajoutée, false si la personne
      *        <oce>p était déjà présente dans l'annuaire
      */
-    public boolean ajouterEntree(Personne p, ListeNumTel nums) ;
+    public boolean ajouterEntree(Personne p, ListeNumTel_BEN_ABDALLAH nums) ;
     
     /**
      * ajoute un numéro à la fin de la liste des numéro d'une personne.
