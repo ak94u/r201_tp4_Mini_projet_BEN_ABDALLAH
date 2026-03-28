@@ -5,6 +5,8 @@
 package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.HashSet;
 /**
  *
  * @author but-info
@@ -100,4 +102,15 @@ public class Annuaire_BEN_ABDALLAH implements Annuaire {
     public Iterator<Personne> personnes() {
         return this.entrees_annuaire.keySet().iterator();
     }
-}
+    
+    public Set<Personne> entreesPourChaine(String s1) {
+        Set<Personne> resultat = new HashSet<>();
+        if (s1 == null || s1.isEmpty()) {
+            return resultat;
+        }
+        for (Personne p : this.entrees_annuaire.keySet()) {
+            if (p.getNom().startsWith(s1)) resultat.add(p);
+        }
+        return resultat;
+    }
+}   

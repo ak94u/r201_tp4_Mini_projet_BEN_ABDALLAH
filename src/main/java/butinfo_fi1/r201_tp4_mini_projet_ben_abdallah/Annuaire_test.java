@@ -141,6 +141,31 @@ public class Annuaire_test {
     // 5. Suppression de Charlie
     annuaire.supprimer(charlie);
     assertNull(annuaire.numeros(charlie), "Charlie devrait être totalement supprimé de l'annuaire");
-}
+    }
+    
+    // --- Test pour entreesPourChaine ---
+
+    @Test
+    @DisplayName("entreesPourChaine : recherche par préfixe sur Charlie")
+    public void testEntreesPourChaineFiltre() {
+        // Préparation : On ajoute Alice, Bob et Charlie
+        annuaire.ajouterNumeroFin(alice, numMobile);   // Alice Z
+        annuaire.ajouterNumeroFin(bob, numDomicile);   // Bob Y
+        annuaire.ajouterNumeroFin(charlie, numTravail); // Charlie X
+
+        // 1. Test avec le début du nom de Charlie ("Cha")
+        java.util.HashSet<Personne> resultat = annuaire.entreesPourChaine("Cha");
+        
+        assertTrue(resultat.contains(charlie), "Le résultat devrait contenir Charlie");
+        assertEquals(1, resultat.size(), "Il ne devrait y avoir qu'une seule personne");
+
+        // 2. Test avec une chaîne qui ne correspond à personne
+        java.util.HashSet<Personne> vide = annuaire.entreesPourChaine("Zz");
+        assertTrue(vide.isEmpty(), "Le résultat devrait être vide pour 'Zz'");
+
+        // 3. Test avec une chaîne nulle ou vide (selon votre code)
+        java.util.HashSet<Personne> chaineVide = annuaire.entreesPourChaine("");
+        assertTrue(chaineVide.isEmpty(), "Le résultat devrait être vide si la chaîne est vide");
+    }
 
 }
