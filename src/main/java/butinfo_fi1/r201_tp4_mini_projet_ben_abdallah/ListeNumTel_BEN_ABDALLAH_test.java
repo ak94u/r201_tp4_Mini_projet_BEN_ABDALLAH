@@ -6,7 +6,6 @@ package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 /**
  *
  * @author but-info
@@ -23,7 +22,7 @@ public class ListeNumTel_BEN_ABDALLAH_test {
         //On suppose que NumTel a un constructeur NumTel(String num)
         nPro = new NumTel("0140404040","T");
         nPerso = new NumTel("0602020204", "P");
-        liste = new ListeNumTel_BEN_ABDALLAH(new ArrayList<>()); 
+        liste = new ListeNumTel_BEN_ABDALLAH(); 
     }
     
     @Test

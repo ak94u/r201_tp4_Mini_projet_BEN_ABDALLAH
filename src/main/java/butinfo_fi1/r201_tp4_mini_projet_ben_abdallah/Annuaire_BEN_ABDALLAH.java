@@ -10,6 +10,8 @@ import java.util.HashMap;
  */
 public class Annuaire_BEN_ABDALLAH implements Annuaire {
     private HashMap<Personne, ListeNumTel_BEN_ABDALLAH> Contact;
+
+    
     
     public Annuaire_BEN_ABDALLAH(){
         this.Contact = new HashMap<>();
@@ -54,7 +56,7 @@ public class Annuaire_BEN_ABDALLAH implements Annuaire {
             return null;
         }
         ListeNumTel_BEN_ABDALLAH liste = this.Contact.get(p);
-        if(liste.estVide()){
+        if(liste == null){
             return null;
         }
         
@@ -64,7 +66,11 @@ public class Annuaire_BEN_ABDALLAH implements Annuaire {
     public HashMap<Personne, ListeNumTel_BEN_ABDALLAH> getContact(){
         return this.Contact;
     }
-
+    
+    public void setContact(HashMap<Personne, ListeNumTel_BEN_ABDALLAH> Contact) {
+        this.Contact = Contact;
+    }
+    
     @Override
     public ListeNumTel numeros(Personne p) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
