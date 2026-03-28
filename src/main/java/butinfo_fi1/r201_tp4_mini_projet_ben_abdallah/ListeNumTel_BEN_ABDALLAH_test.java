@@ -22,7 +22,7 @@ public class ListeNumTel_BEN_ABDALLAH_test {
         //On suppose que NumTel a un constructeur NumTel(String num)
         nPro = new NumTel("0140404040","T");
         nPerso = new NumTel("0602020204", "P");
-        liste = new ListeNumTel_BEN_ABDALLAH(); 
+        liste = new ListeNumTel_BEN_ABDALLAH(new NumTel("151171", "D")); 
     }
     
     @Test

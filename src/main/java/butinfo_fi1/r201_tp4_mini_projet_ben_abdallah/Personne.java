@@ -20,14 +20,14 @@ public class Personne implements Comparable<Personne> {
         this.nom = nom;
         this.prenom = prenom;
         if (civilite == null){
-           this.civilite = "Non renseignée";
+           this.civilite = "Non renseignee";
         }else{
           this.civilite = civilite;  
         }
     }
     
     public Personne(String nom, String prenom){
-        this(nom, prenom, "Non renseignée");
+        this(nom, prenom, "Non renseignee");
         
     }
 
@@ -74,7 +74,7 @@ public class Personne implements Comparable<Personne> {
         nom = getNom();
         prenom = getPrenom();
         civilite = getCivilite();
-        return "[Prenom = " + prenom + "," + "Nom = " + nom + "," + "Civilité = " + civilite + " ]"; 
+        return "[Prenom = " + prenom + "," + " Nom = " + nom + "," + " Civilite = " + civilite + " ]"; 
     }
 
     @Override

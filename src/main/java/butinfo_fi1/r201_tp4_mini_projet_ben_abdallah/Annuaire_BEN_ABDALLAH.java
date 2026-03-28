@@ -38,7 +38,7 @@ public class Annuaire_BEN_ABDALLAH implements Annuaire {
     @Override
     public void ajouterNumeroFin(Personne p, NumTel n) {
         if (!this.entrees_annuaire.containsKey(p)) {
-            ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH();
+            ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH(new NumTel("151171", "D"));
             liste.add(n);
             this.entrees_annuaire.put(p, liste);
         } else {
@@ -49,7 +49,7 @@ public class Annuaire_BEN_ABDALLAH implements Annuaire {
     @Override
     public void ajouterNumeroDebut(Personne p, NumTel n) {
         if (!this.entrees_annuaire.containsKey(p)) {
-            ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH();
+            ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH(new NumTel("151171", "D"));
             liste.ajouterDebut(n);
             this.entrees_annuaire.put(p, liste);
         } else {

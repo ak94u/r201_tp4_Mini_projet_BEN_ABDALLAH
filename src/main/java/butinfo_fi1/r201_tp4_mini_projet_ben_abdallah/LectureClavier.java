@@ -73,7 +73,7 @@ public class LectureClavier {
       return(stdin.readLine()); 
     }
     catch (Exception e) {       
-      erreurEntree(e,"chaine de caractères");
+      erreurEntree(e,"chaine de caracteres");
 
       return null;
     } 
@@ -89,7 +89,7 @@ public class LectureClavier {
       return(Float.valueOf(stdin.readLine()).floatValue()); 
     }
     catch (Exception e) {       
-      erreurEntree(e,"réel (float)");
+      erreurEntree(e,"reel (float)");
 
       return (float) 0.0;
     } 
@@ -104,7 +104,7 @@ public class LectureClavier {
       return(Double.valueOf(stdin.readLine()).doubleValue()); 
     }
     catch (Exception e) {      
-      erreurEntree(e,"réel (double)");
+      erreurEntree(e,"reel (double)");
       return 0.0;
     } 
   }  

@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class ListeNumTel_BEN_ABDALLAH implements ListeNumTel{
     private final ArrayList<NumTel> Listenum;
     
-    public ListeNumTel_BEN_ABDALLAH(){
+    public ListeNumTel_BEN_ABDALLAH(NumTel NumTel){
         this.Listenum = new ArrayList<>();
         }
 
