@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.Iterator;
+import java.util.Set;
+
 /**
  *
  * @author but-info
@@ -154,17 +156,17 @@ public class Annuaire_test {
         annuaire.ajouterNumeroFin(charlie, numTravail); // Charlie X
 
         // 1. Test avec le début du nom de Charlie ("Cha")
-        java.util.HashSet<Personne> resultat = annuaire.entreesPourChaine("Cha");
+        java.util.Set<Personne> resultat = annuaire.entreesPourChaine("Cha");
         
         assertTrue(resultat.contains(charlie), "Le résultat devrait contenir Charlie");
         assertEquals(1, resultat.size(), "Il ne devrait y avoir qu'une seule personne");
 
         // 2. Test avec une chaîne qui ne correspond à personne
-        java.util.HashSet<Personne> vide = annuaire.entreesPourChaine("Zz");
+        java.util.Set<Personne> vide = annuaire.entreesPourChaine("Zz");
         assertTrue(vide.isEmpty(), "Le résultat devrait être vide pour 'Zz'");
 
         // 3. Test avec une chaîne nulle ou vide (selon votre code)
-        java.util.HashSet<Personne> chaineVide = annuaire.entreesPourChaine("");
+        Set<Personne> chaineVide = annuaire.entreesPourChaine("");
         assertTrue(chaineVide.isEmpty(), "Le résultat devrait être vide si la chaîne est vide");
     }
 
