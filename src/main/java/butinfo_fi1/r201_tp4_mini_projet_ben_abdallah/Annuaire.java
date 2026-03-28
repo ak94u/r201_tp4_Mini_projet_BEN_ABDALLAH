@@ -55,18 +55,18 @@ public interface Annuaire {
     
     /**
      * retourne les numéro  si la personne est absente retourne null
-     * @param o la personne pour laquelle on consulte les numéros.
+     * @param p
      * @return la liste des numéro de la personne si celle-ci est présente dans l'annuaire,
      *         null sinon.
      */
-    public ListeNumTel numeros(Personne p) ;
+    public ListeNumTel numeros(Personne p);
     
     
     /**
      * renvoie un iterateur sur l'ensemble des personnes contenues dans l'annuaire
      * @return l'iterateur
      */
-    //public Iterator personnes();
+    public Iterator personnes();
     
     /**
      * affiche l'intégralité de l'annuaire, sous la forme d'une personne par ligne

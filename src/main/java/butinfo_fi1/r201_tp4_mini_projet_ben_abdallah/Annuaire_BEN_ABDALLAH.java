@@ -4,91 +4,100 @@
  */
 package butinfo_fi1.r201_tp4_mini_projet_ben_abdallah;
 import java.util.HashMap;
+import java.util.Iterator;
 /**
  *
  * @author but-info
  */
 public class Annuaire_BEN_ABDALLAH implements Annuaire {
-    private HashMap<Personne, ListeNumTel_BEN_ABDALLAH> Contact;
 
-    
-    
-    public Annuaire_BEN_ABDALLAH(){
-        this.Contact = new HashMap<>();
+    public HashMap<Personne, ListeNumTel_BEN_ABDALLAH> getEntrees_annuaire() {
+        return entrees_annuaire;
     }
-    
+
+    public void setEntrees_annuaire(HashMap<Personne, ListeNumTel_BEN_ABDALLAH> entrees_annuaire) {
+        this.entrees_annuaire = entrees_annuaire;
+    }
+
+    private HashMap<Personne, ListeNumTel_BEN_ABDALLAH> entrees_annuaire;
+
+    public Annuaire_BEN_ABDALLAH() {
+        this.entrees_annuaire = new HashMap<>();
+    }
+
     @Override
-    public boolean ajouterEntree(Personne p, ListeNumTel_BEN_ABDALLAH nums) { 
-        if(getContact().containsKey(p)){
+    public boolean ajouterEntree(Personne p, ListeNumTel_BEN_ABDALLAH nums) {
+        if (this.entrees_annuaire.containsKey(p)) {
             System.out.println("Cette personne est deja presente");
-            return false;// personne déjà présente
+            return false;
         }
-        getContact().put(p, nums);
+        this.entrees_annuaire.put(p, nums);
         return true;
     }
 
     @Override
     public void ajouterNumeroFin(Personne p, NumTel n) {
-        if(!getContact().containsKey(p)){ 
+        if (!this.entrees_annuaire.containsKey(p)) {
             ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH();
             liste.add(n);
-            getContact().put(p, liste);
-        }else{
-            getContact().get(p).add(n);
+            this.entrees_annuaire.put(p, liste);
+        } else {
+            this.entrees_annuaire.get(p).add(n);
         }
-        
     }
 
     @Override
     public void ajouterNumeroDebut(Personne p, NumTel n) {
-        if(!getContact().containsKey(p)){
+        if (!this.entrees_annuaire.containsKey(p)) {
             ListeNumTel_BEN_ABDALLAH liste = new ListeNumTel_BEN_ABDALLAH();
             liste.ajouterDebut(n);
-            getContact().put(p, liste);        
-        }else{
-            getContact().get(p).ajouterDebut(n);
+            this.entrees_annuaire.put(p, liste);
+        } else {
+            this.entrees_annuaire.get(p).ajouterDebut(n);
         }
     }
 
     @Override
     public NumTel premierNumero(Personne p) {
-        if(!this.Contact.containsKey(p)){
+        if (!this.entrees_annuaire.containsKey(p)) {
             return null;
         }
-        ListeNumTel_BEN_ABDALLAH liste = this.Contact.get(p);
-        if(liste == null){
-            return null;
-        }
-        
-        return liste.premierNumero();
+        return this.entrees_annuaire.get(p).premierNumero();
     }
 
-    public HashMap<Personne, ListeNumTel_BEN_ABDALLAH> getContact(){
-        return this.Contact;
-    }
-    
-    public void setContact(HashMap<Personne, ListeNumTel_BEN_ABDALLAH> Contact) {
-        this.Contact = Contact;
-    }
-    
     @Override
     public ListeNumTel numeros(Personne p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.entrees_annuaire.get(p); // retourne null si absent → parfait
     }
 
     @Override
     public void afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for (HashMap.Entry<Personne, ListeNumTel_BEN_ABDALLAH> e : this.entrees_annuaire.entrySet()) {
+            System.out.println(e.getKey() + " => " + e.getValue());
+        }
     }
 
     @Override
     public void supprimer(Personne p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.entrees_annuaire.remove(p); // remove fait déjà tout
     }
 
     @Override
     public void supprimer(Personne p, int n) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (!this.entrees_annuaire.containsKey(p)) {
+            return;
+        }
+
+        ListeNumTel_BEN_ABDALLAH liste = this.entrees_annuaire.get(p);
+        liste.retirer(n);
+
+        if (liste.nbNumeros() == 0) {
+            this.entrees_annuaire.remove(p);
+        }
     }
-    
+
+    @Override
+    public Iterator<Personne> personnes() {
+        return this.entrees_annuaire.keySet().iterator();
+    }
 }
